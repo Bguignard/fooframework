@@ -2,9 +2,12 @@
 ob_start ('ob_gzhandler');
 session_start();
 setlocale (LC_ALL, 'fr_FR');
-include_once("../conf/Conf.php");
-include_once("../includes/class/Connexion.php");
-include_once("../includes/init.php");
+include_once("./conf/Conf.php");
+include_once("./includes/class/Connexion.php");
+include_once("./includes/class/Page.php");
+include_once("./includes/init.php");
+$pageName = isset($_GET['page']) ? $_GET['page'] : "";
+$page = new Page();
 ?>
 
 <!doctype html>
@@ -45,17 +48,29 @@ include_once("../includes/init.php");
 
 
     <!--    Titre-->
-    <title>Installation du framework</title>
+    <title>
+        <?php echo $page->getTitle()?>
+    </title>
     <link rel="shortcut icon" href="/favicon.ico" />
 </head>
 
 <!--body-->
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
 
+<!--Header-->
+<?php include("view/v_header.php");?>
 <!--    Content-->
 <div id="contenu" class="container">
     <?php
-     include_once("./view/v_install.php");
+    //                contenu
+    switch($page)
+    {
+        case "accueil" : include_once("./view/v_accueil.html");
+            break;
+
+        default : include_once("./view/v_accueil.html");
+            break;
+    }
     ?>
 </div>
 <!--    Footer-->

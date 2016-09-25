@@ -8,9 +8,5 @@
  */
 interface DisplayableHtmlEntity
 {
-
-    public function __toString()
-    {
-        // TODO: Implement __toString() method.
-    }
+    public function display();
 }

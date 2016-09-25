@@ -32,46 +32,52 @@ $page = new Page();
 
     <!--    Scripts-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <!-- Latest compiled and minified Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/fct.js"></script>
 
     <!--    Styles-->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+        <!-- Latest compiled and minified bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!--        Optionnal css-->
     <link rel="stylesheet" type="text/css" href="css/styles.css">
+
+    <!--    Icons-->
+    <script type="text/javascript" src="https://use.fontawesome.com/bd1130bfda.js"></script>
+
+
 
     <!--    Titre-->
     <title>
-
+    <?php echo $page->getTitle()?>
     </title>
     <link rel="shortcut icon" href="/favicon.ico" />
 </head>
 
 <!--body-->
-<body>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
 
-
-
-<span id="include"></span>
+    <!--Header-->
 <?php include("view/v_header.php");?>
-    <div class="container">
-        <div id="contenu">
-            <?php
-            //                contenu
-            switch($page)
-            {
-                case "accueil" : include_once("./view/v_accueil.html");
-                    break;
+    <!--    Content-->
+    <div id="contenu" class="container">
+        <?php
+        //                contenu
+        switch($page)
+        {
+            case "accueil" : include_once("./view/v_accueil.html");
+                break;
 
-                default : include_once("./view/v_accueil.html");
-                    break;
-            }
-            ?>
-        </div>
-        <footer class="bluePanel">
-            <?php
-            include("view/v_footer.php");
-            ?>
-        </footer>
+            default : include_once("./view/v_accueil.html");
+                break;
+        }
+        ?>
     </div>
+    <!--    Footer-->
+    <footer id="footer" class="container">
+        <?php
+        include("view/v_footer.php");
+        ?>
+    </footer>
 </body>
 </html>

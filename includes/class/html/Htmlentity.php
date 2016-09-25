@@ -6,12 +6,21 @@
  * Date: 08/09/2016
  * Time: 22:44
  */
-class Htmlentity
+class Htmlentity implements DisplayableHtmlEntity
 {
     private $type = "";
     private $class = (array)[];
     private $id = "";
     private $content="";
+    private $htmlEntitiesContent = [];
+
+    /**
+     * @return string
+     */
+    public function display()
+    {
+        // TODO: Implement display() method.
+    }
 
     /**
      * @return string
